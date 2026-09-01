@@ -25,7 +25,7 @@ class Config:
         "WMT_US_EQ": "WMT",       # Consumer
     })
 
-    max_position_value: float = 500.0
+    max_position_value: float = 5000.0
     max_open_positions: int = 5
     max_daily_loss: float = -500.0
     max_drawdown: float = -1500.0
