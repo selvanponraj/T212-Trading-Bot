@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: feature/setup
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,6 +34,9 @@ jobs:
           TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
           TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
           TRADING212_ENVIRONMENT: demo
+          LITE_LLM_BASE_URL: ${{ vars.LITE_LLM_BASE_URL || 'http://132.145.30.2:4000' }}
+          LITE_LLM_MODEL: ${{ vars.LITE_LLM_MODEL || 'gpt-5.6-luna' }}
+          LITE_LLM_API_KEY: ${{ secrets.LITE_LLM_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m bot.main
 
@@ -41,6 +46,5 @@ jobs:
           git config user.email "bot@noreply.github.com"
           git add state.json data/
           git diff --staged --quiet || git commit -m "bot: update state $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git pull --rebase origin main
-          git push origin HEAD:main
-
+          git pull --rebase origin feature/setup
+          git push origin HEAD:feature/setup
