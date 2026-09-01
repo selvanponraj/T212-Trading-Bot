@@ -44,5 +44,28 @@
     "stop_loss": 354.5,
     "take_profit": 358.38,
     "pnl": null
+  },
+  {
+    "id": "2026-09-01T12:48:48.877506+00:00_XOM_US_EQ_BUY",
+    "ticker": "XOM_US_EQ",
+    "yf_symbol": "XOM",
+    "action": "BUY",
+    "quantity": 3,
+    "price": 160.9600067138672,
+    "value": 482.88,
+    "time": "2026-09-01T12:48:48.877506+00:00",
+    "reasoning": "Strong price breakout to $160.96 confirmed by a massive volume spike (over 2.3M, 5x the recent average). The EMA(9) is above EMA(21) and rising, OBV is in an uptrend, and the MACD histogram has ticked up, indicating renewed bullish momentum. RSI at 67.07 shows strong momentum but is not yet overbought. Stop loss is set below the EMA(9) support using 1.5x ATR.",
+    "confidence": 0.85,
+    "indicators": {
+      "rsi_14": 67.07,
+      "macd": 0.8139,
+      "macd_signal": 0.554,
+      "macd_histogram": 0.26,
+      "bb_pct": 0.8198,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 159.72,
+    "take_profit": 163.02,
+    "pnl": null
   }
 ]

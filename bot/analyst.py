@@ -2,6 +2,7 @@ import json
 import logging
 
 import google.generativeai as genai
+import httpx
 
 from bot.config import Config
 
@@ -63,7 +64,7 @@ def _clean_json_response(text: str) -> str:
     text = text.strip()
     if text.startswith("```"):
         lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
+        lines = [line for line in lines if not line.strip().startswith("```")]
         text = "\n".join(lines).strip()
     return text
 
@@ -82,8 +83,117 @@ def _format_history(history: list[dict]) -> str:
             parts.append(f"EMA9={candle['ema_9']}")
             parts.append(f"EMA21={candle['ema_21']}")
         parts.append(f"vol={candle['volume']}")
-        lines.append(f"  [{i+1}] {', '.join(parts)}")
+        lines.append(f"  [{i + 1}] {', '.join(parts)}")
     return "\n".join(lines)
+
+
+def _build_user_prompt(
+    ticker: str,
+    indicators: dict,
+    current_position: dict | None,
+    daily_pnl: float,
+    config: Config,
+) -> str:
+    current = indicators["current"]
+    history = indicators.get("history", [])
+    return USER_PROMPT_TEMPLATE.format(
+        ticker=ticker,
+        current_price=current["current_price"],
+        volume=current["volume"],
+        rsi_14=current["rsi_14"],
+        macd=current["macd"],
+        macd_signal=current["macd_signal"],
+        macd_histogram=current["macd_histogram"],
+        bb_upper=current["bb_upper"],
+        bb_middle=current["bb_middle"],
+        bb_lower=current["bb_lower"],
+        bb_pct=current["bb_pct"],
+        bb_width=current.get("bb_width", "N/A"),
+        ema_9=current["ema_9"],
+        ema_21=current["ema_21"],
+        ema_trend=current["ema_trend"],
+        atr_14=current.get("atr_14", "N/A"),
+        obv_trend=current.get("obv_trend", "N/A"),
+        price_change_pct=current["price_change_pct"],
+        history_length=len(history),
+        indicator_history=_format_history(history),
+        position_info=_format_position_info(current_position),
+        daily_pnl=daily_pnl,
+        max_position_value=config.max_position_value,
+    )
+
+
+def _parse_decision(text: str, ticker: str, provider: str) -> dict | None:
+    try:
+        decision = json.loads(_clean_json_response(text))
+    except (json.JSONDecodeError, TypeError) as exc:
+        logger.warning("%s: %s response was not valid JSON: %s", ticker, provider, exc)
+        return None
+
+    required_keys = {
+        "action", "confidence", "quantity", "reasoning", "stop_loss", "take_profit"
+    }
+    if not isinstance(decision, dict) or not required_keys.issubset(decision):
+        logger.warning("%s: %s response missing required decision fields", ticker, provider)
+        return None
+    if decision["action"] not in ("BUY", "SELL", "HOLD"):
+        logger.warning("%s: %s response has an invalid action", ticker, provider)
+        return None
+
+    try:
+        decision["confidence"] = float(decision["confidence"])
+        decision["quantity"] = int(decision["quantity"])
+        decision["stop_loss"] = float(decision["stop_loss"])
+        decision["take_profit"] = float(decision["take_profit"])
+    except (TypeError, ValueError, OverflowError):
+        logger.warning("%s: %s response has invalid numeric fields", ticker, provider)
+        return None
+
+    if not 0 <= decision["confidence"] <= 1 or decision["quantity"] < 1:
+        logger.warning("%s: %s response is outside decision bounds", ticker, provider)
+        return None
+    if not isinstance(decision["reasoning"], str):
+        logger.warning("%s: %s response has invalid reasoning", ticker, provider)
+        return None
+    return decision
+
+
+def _remote_decision(prompt: str, config: Config) -> str:
+    url = f"{config.lite_llm_base_url.rstrip('/')}/v1/chat/completions"
+    headers = {"Authorization": f"Bearer {config.lite_llm_api_key}"}
+    payload = {
+        "model": config.lite_llm_model,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": prompt},
+        ],
+    }
+    with httpx.Client(timeout=config.lite_llm_timeout) as client:
+        response = client.post(url, headers=headers, json=payload)
+        response.raise_for_status()
+        content = response.json()["choices"][0]["message"]["content"]
+        if not isinstance(content, str):
+            raise ValueError("remote response content is not text")
+        return content
+
+
+def _gemini_decision(prompt: str, config: Config) -> str:
+    genai.configure(api_key=config.gemini_api_key)
+    model = genai.GenerativeModel(
+        "gemini-3.5-flash", system_instruction=SYSTEM_PROMPT
+    )
+    return model.generate_content(prompt).text
+
+
+def _safe_hold() -> dict:
+    return {
+        "action": "HOLD",
+        "confidence": 0.0,
+        "quantity": 1,
+        "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
+        "stop_loss": 0.0,
+        "take_profit": 0.0,
+    }
 
 
 def get_trading_decision(
@@ -92,77 +202,27 @@ def get_trading_decision(
     current_position: dict | None,
     daily_pnl: float,
     config: Config,
-) -> dict | None:
-    try:
-        genai.configure(api_key=config.gemini_api_key)
-        model = genai.GenerativeModel(
-            "gemini-3.5-flash",
-            system_instruction=SYSTEM_PROMPT,
-        )
+) -> dict:
+    prompt = _build_user_prompt(ticker, indicators, current_position, daily_pnl, config)
 
-        current = indicators["current"]
-        history = indicators.get("history", [])
+    if config.lite_llm_api_key:
+        try:
+            decision = _parse_decision(_remote_decision(prompt, config), ticker, "remote LLM")
+            if decision is not None:
+                return decision
+        except Exception as exc:
+            logger.warning("%s: remote LLM call failed: %s", ticker, exc)
+    else:
+        logger.info("%s: remote LLM is not configured", ticker)
 
-        user_prompt = USER_PROMPT_TEMPLATE.format(
-            ticker=ticker,
-            current_price=current["current_price"],
-            volume=current["volume"],
-            rsi_14=current["rsi_14"],
-            macd=current["macd"],
-            macd_signal=current["macd_signal"],
-            macd_histogram=current["macd_histogram"],
-            bb_upper=current["bb_upper"],
-            bb_middle=current["bb_middle"],
-            bb_lower=current["bb_lower"],
-            bb_pct=current["bb_pct"],
-            bb_width=current.get("bb_width", "N/A"),
-            ema_9=current["ema_9"],
-            ema_21=current["ema_21"],
-            ema_trend=current["ema_trend"],
-            atr_14=current.get("atr_14", "N/A"),
-            obv_trend=current.get("obv_trend", "N/A"),
-            price_change_pct=current["price_change_pct"],
-            history_length=len(history),
-            indicator_history=_format_history(history),
-            position_info=_format_position_info(current_position),
-            daily_pnl=daily_pnl,
-            max_position_value=config.max_position_value,
-        )
+    if config.gemini_api_key:
+        try:
+            decision = _parse_decision(_gemini_decision(prompt, config), ticker, "Gemini")
+            if decision is not None:
+                return decision
+        except Exception as exc:
+            logger.warning("%s: Gemini fallback failed: %s", ticker, exc)
+    else:
+        logger.info("%s: Gemini fallback is not configured", ticker)
 
-        response = model.generate_content(user_prompt)
-        raw_text = response.text
-        cleaned = _clean_json_response(raw_text)
-        decision = json.loads(cleaned)
-
-        required_keys = {
-            "action",
-            "confidence",
-            "quantity",
-            "reasoning",
-            "stop_loss",
-            "take_profit",
-        }
-        if not required_keys.issubset(decision.keys()):
-            missing = required_keys - decision.keys()
-            logger.warning(f"{ticker}: Gemini response missing keys: {missing}")
-            return None
-
-        if decision["action"] not in ("BUY", "SELL", "HOLD"):
-            logger.warning(f"{ticker}: Invalid action '{decision['action']}'")
-            return None
-
-        decision["confidence"] = float(decision["confidence"])
-        decision["quantity"] = int(decision["quantity"])
-        decision["stop_loss"] = float(decision["stop_loss"])
-        decision["take_profit"] = float(decision["take_profit"])
-
-        return decision
-
-    except json.JSONDecodeError as e:
-        logger.error(f"{ticker}: Failed to parse Gemini response as JSON: {e}")
-        logger.debug(f"{ticker}: Raw response: {raw_text}")
-        return None
-    except Exception as e:
-        logger.error(f"{ticker}: Gemini API call failed: {e}")
-        return None
-
+    return _safe_hold()

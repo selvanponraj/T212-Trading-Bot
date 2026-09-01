@@ -34,6 +34,9 @@ jobs:
           TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
           TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
           TRADING212_ENVIRONMENT: demo
+          LITE_LLM_BASE_URL: ${{ vars.LITE_LLM_BASE_URL || 'http://132.145.30.2:4000' }}
+          LITE_LLM_MODEL: ${{ vars.LITE_LLM_MODEL || 'gpt-5.6-luna' }}
+          LITE_LLM_API_KEY: ${{ secrets.LITE_LLM_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m bot.main
 
