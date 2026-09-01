@@ -21,13 +21,13 @@ class Config:
         "WMT_US_EQ": "WMT",       # Consumer
     })
 
-    max_position_value: float = 100.0
-    max_open_positions: int = 3
-    max_daily_loss: float = -50.0
-    max_drawdown: float = -150.0       # max cumulative loss from peak before halting all trading
-    confidence_threshold: float = 0.7
-    default_stop_loss_pct: float = 0.03
-    default_take_profit_pct: float = 0.05
+    max_position_value: float = 500.0
+    max_open_positions: int = 2
+    max_daily_loss: float = -500.0
+    max_drawdown: float = -1500.0
+    confidence_threshold: float = 0.75
+    default_stop_loss_pct: float = 0.04
+    default_take_profit_pct: float = 0.08
     indicator_history_length: int = 10  # number of recent candles to send to Gemini
 
     @classmethod

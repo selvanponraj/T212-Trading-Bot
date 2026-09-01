@@ -1,9 +1,43 @@
 {
-  "positions": [],
+  "positions": [
+    {
+      "ticker": "AAPL_US_EQ",
+      "quantity": 1,
+      "entry_price": 317.2300109863281,
+      "entry_time": "2026-09-01T12:10:31.812315+00:00",
+      "stop_loss": 315.08,
+      "take_profit": 320.81
+    },
+    {
+      "ticker": "JPM_US_EQ",
+      "quantity": 1,
+      "entry_price": 356.1650085449219,
+      "entry_time": "2026-09-01T12:10:39.774535+00:00",
+      "stop_loss": 354.5,
+      "take_profit": 358.38
+    }
+  ],
   "daily_pnl": 0.0,
-  "trading_day": "2026-08-31",
-  "trade_history": [],
-  "last_run": "2026-08-31T19:50:58.807728+00:00",
+  "trading_day": "2026-09-01",
+  "trade_history": [
+    {
+      "ticker": "AAPL_US_EQ",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 317.2300109863281,
+      "time": "2026-09-01T12:10:31.812348+00:00",
+      "reasoning": "A strong bullish reversal is confirmed by a massive volume spike (5M) on the breakout above the Bollinger Middle Band and EMA levels. MACD histogram is rapidly narrowing toward a bullish crossover, and RSI is in a strong uptrend from previous lows, showing high buying momentum."
+    },
+    {
+      "ticker": "JPM_US_EQ",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 356.1650085449219,
+      "time": "2026-09-01T12:10:39.774565+00:00",
+      "reasoning": "Strong bullish reversal confirmed by a massive volume spike (714,363), RSI rising from 43.53 to 51.96, and MACD histogram narrowing significantly towards a bullish crossover. Price has also crossed above the Middle Bollinger Band and both EMA(9) and EMA(21) indicating short-term momentum shift."
+    }
+  ],
+  "last_run": "2026-09-01T12:15:56.869348+00:00",
   "cumulative_pnl": 0.0,
   "peak_pnl": 0.0
 }

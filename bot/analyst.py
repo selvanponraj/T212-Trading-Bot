@@ -96,7 +96,7 @@ def get_trading_decision(
     try:
         genai.configure(api_key=config.gemini_api_key)
         model = genai.GenerativeModel(
-            "gemini-2.0-flash",
+            "gemini-3.5-flash",
             system_instruction=SYSTEM_PROMPT,
         )
 
