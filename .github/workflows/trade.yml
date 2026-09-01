@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: feature/setup
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -46,5 +44,5 @@ jobs:
           git config user.email "bot@noreply.github.com"
           git add state.json data/
           git diff --staged --quiet || git commit -m "bot: update state $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git pull --rebase origin feature/setup
-          git push origin HEAD:feature/setup
+          git pull --rebase origin main
+          git push origin HEAD:main
