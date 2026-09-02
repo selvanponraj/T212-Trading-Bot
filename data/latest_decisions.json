@@ -1,12 +1,12 @@
 {
-  "run_time": "2026-09-01T23:10:06.826126+00:00",
+  "run_time": "2026-09-02T13:19:22.999406+00:00",
   "decisions": [
     {
       "ticker": "AAPL_US_EQ",
       "yf_symbol": "AAPL",
       "action": "HOLD",
-      "confidence": 0.64,
-      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21, and OBV is rising. However, momentum is weakening: RSI has declined from 76.36 to 65.87, MACD histogram has contracted steadily from 1.1479 to 0.1449 without a bearish crossover, and price has retreated from the upper Bollinger Band toward the middle band. The latest volume spike occurred on a slight down move, so confirmation is mixed. No position is held, therefore SELL is not appropriate; wait for renewed momentum or a pullback with stronger confirmation.",
+      "confidence": 0.84,
+      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21, and OBV is rising. However, momentum is weakening: RSI has declined from 76.36 to 65.87, MACD histogram has contracted steadily from 1.1479 to 0.1449, and price has eased from recent highs. Price is not near the lower Bollinger Band, so there is no oversold reversal setup for a BUY. The latest volume spike is notable but does not yet confirm renewed upside momentum. No position is held, so SELL is not appropriate.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -34,8 +34,8 @@
       "ticker": "JPM_US_EQ",
       "yf_symbol": "JPM",
       "action": "HOLD",
-      "confidence": 0.66,
-      "reasoning": "Bearish trend remains dominant: EMA9 is below EMA21, MACD is well below its signal with a persistently negative histogram, and OBV is falling. Price is near the lower Bollinger Band and RSI has declined from 60.62 to 42.71, while the latest volume spike confirms selling pressure. Although MACD histogram deterioration has flattened slightly and RSI is above its prior 41.23 low, there is no strong bullish divergence or confirmed reversal. Avoid buying against the trend; no sell is permitted because no position is held.",
+      "confidence": 0.93,
+      "reasoning": "Bearish trend is confirmed by EMA9 below EMA21, falling RSI from 60.62 to 42.71, persistently negative MACD histogram, falling OBV, and elevated volume on the latest decline. Price is near the lower Bollinger Band but not showing a confirmed bullish reversal or RSI divergence; therefore a BUY is premature. No position is held, so SELL is not applicable. Monitor for RSI stabilization, MACD histogram improvement, and volume-supported recovery above the short EMAs.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -64,7 +64,7 @@
       "yf_symbol": "XOM",
       "action": "HOLD",
       "confidence": 0.86,
-      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21 and OBV rising, while the latest volume spike confirms participation. However, RSI is persistently overbought at 77.38, MACD remains positive but its histogram has contracted from 0.3934 to 0.0877 over the last 10 candles, indicating weakening momentum. Price is elevated near the upper Bollinger region, though %B has eased from 0.9128 to 0.7969. Signals are mixed and do not meet the criteria for a fresh BUY; no position is held, so SELL is not appropriate.",
+      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21, and OBV/volume support the broader advance. However, RSI is persistently overbought at 77.38, while MACD histogram has declined steadily from 0.3934 to 0.0877 despite price making marginal new highs, signaling weakening momentum and potential bearish divergence. Price is elevated near the upper Bollinger region, but the latest volume spike produced almost no price change, suggesting possible exhaustion rather than a clean breakout. With no position held, avoid selling and wait for either a confirmed momentum reset or stronger breakout confirmation.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -92,8 +92,8 @@
       "ticker": "JNJ_US_EQ",
       "yf_symbol": "JNJ",
       "action": "HOLD",
-      "confidence": 0.68,
-      "reasoning": "Bullish trend is supported by rising EMA9 above EMA21, steadily increasing MACD histogram, rising OBV, and strong latest volume. However, RSI has climbed from 57.02 to 72.97 and price is near the upper Bollinger Band at 94.75% of the range, indicating overbought conditions and limited immediate upside. No clear RSI divergence or bearish MACD crossover is present, so signals are mixed rather than sufficient for a new BUY.",
+      "confidence": 0.86,
+      "reasoning": "Bullish trend remains intact: price is above rising EMA9 and EMA21, MACD histogram has expanded from 0.2853 to 0.3770, and the latest volume surge with rising OBV confirms participation. However, RSI has climbed steadily from 57.02 to 72.97 and price is near the upper Bollinger Band at 94.75%B, indicating short-term overextension. There is no clear bearish divergence or momentum reversal, but risk/reward is unfavorable for a fresh entry at current levels. Wait for consolidation or a pullback toward the EMA9 before considering a buy.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -122,7 +122,7 @@
       "yf_symbol": "WMT",
       "action": "HOLD",
       "confidence": 0.68,
-      "reasoning": "Bullish EMA9 above EMA21 and price above the Bollinger middle band support the broader uptrend, but momentum is weakening: RSI has declined from 73.37 to 62.53, MACD histogram has fallen steadily from 0.1905 to -0.0625, and OBV is falling. The latest volume spike is not supported by improving momentum, so confirmation is insufficient for a BUY. No position is held, so SELL is not permitted.",
+      "reasoning": "The broader trend remains bullish with price above EMA(21) and EMA(9) above EMA(21), but momentum is weakening: RSI has declined from 73.37 to 62.53, MACD histogram has contracted from 0.1905 to -0.0625, and Bollinger %B has fallen from 0.9168 to 0.6271. The latest volume spike is not confirmed by the falling OBV trend, making the move suspect. No position is held, so SELL is not appropriate; wait for renewed volume-supported upside or a clearer pullback reversal.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
