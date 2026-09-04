@@ -40,5 +40,19 @@
     "best_trade_pnl": 0.0,
     "worst_trade_pnl": 0.0,
     "positions_open": 0
+  },
+  {
+    "date": "2026-09-04",
+    "pnl": 0.0,
+    "cumulative_pnl": 0.0,
+    "trades_count": 0,
+    "buys": 0,
+    "sells": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": 0.0,
+    "best_trade_pnl": 0.0,
+    "worst_trade_pnl": 0.0,
+    "positions_open": 0
   }
 ]
