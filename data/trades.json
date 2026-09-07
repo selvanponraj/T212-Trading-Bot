@@ -1,0 +1,48 @@
+[
+  {
+    "id": "2026-09-07T10:16:06.273145+00:00_AMZN_US_EQ_BUY",
+    "ticker": "AMZN_US_EQ",
+    "yf_symbol": "AMZN",
+    "action": "BUY",
+    "quantity": 19,
+    "price": 258.510009765625,
+    "value": 4911.69,
+    "time": "2026-09-07T10:16:06.273145+00:00",
+    "reasoning": "Bullish momentum is supported by multiple aligned signals: EMA9 has crossed above EMA21 and both are rising, MACD histogram improved from -0.3112 to +0.0781 with a bullish crossover, RSI advanced from 41.7 to 58.34 without reaching overbought, and price moved from the lower Bollinger region toward the upper band. The latest volume surged to 3.53M while OBV is rising, confirming the move. Price is near resistance at the upper Bollinger Band, so upside may be limited and the position should be managed with ATR-based exits.",
+    "confidence": 0.76,
+    "indicators": {
+      "rsi_14": 58.34,
+      "macd": 0.2318,
+      "macd_signal": 0.1537,
+      "macd_histogram": 0.0781,
+      "bb_pct": 0.6831,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 257.1,
+    "take_profit": 260.1,
+    "pnl": null
+  },
+  {
+    "id": "2026-09-07T10:17:26.245307+00:00_AMD_US_EQ_BUY",
+    "ticker": "AMD_US_EQ",
+    "yf_symbol": "AMD",
+    "action": "BUY",
+    "quantity": 10,
+    "price": 477.45001220703125,
+    "value": 4774.5,
+    "time": "2026-09-07T10:17:26.245307+00:00",
+    "reasoning": "Bullish trend is supported by EMA9 above EMA21 and price above both averages. After a steady decline in MACD histogram and RSI from recent highs, the latest candle shows a renewed MACD histogram uptick and RSI recovery. The sharp price advance is strongly volume-confirmed, with current volume far exceeding recent candles and OBV rising. However, price is near the upper Bollinger Band and RSI is elevated, so this is a momentum breakout entry rather than an oversold setup; use defined risk against a potential pullback.",
+    "confidence": 0.76,
+    "indicators": {
+      "rsi_14": 67.88,
+      "macd": 4.2241,
+      "macd_signal": 3.6426,
+      "macd_histogram": 0.5814,
+      "bb_pct": 0.8426,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 471.8,
+    "take_profit": 484.98,
+    "pnl": null
+  }
+]
