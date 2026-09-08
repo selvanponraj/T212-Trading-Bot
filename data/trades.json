@@ -44,5 +44,21 @@
     "stop_loss": 471.8,
     "take_profit": 484.98,
     "pnl": null
+  },
+  {
+    "id": "2026-09-08T17:06:32.118707+00:00_AMD_US_EQ_SELL",
+    "ticker": "AMD_US_EQ",
+    "yf_symbol": "AMD",
+    "action": "SELL",
+    "quantity": 10,
+    "price": 510.2488098144531,
+    "value": 5102.49,
+    "time": "2026-09-08T17:06:32.118707+00:00",
+    "reasoning": "Take-profit triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": 327.99
   }
 ]

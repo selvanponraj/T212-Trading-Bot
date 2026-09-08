@@ -7,37 +7,21 @@
       "entry_time": "2026-09-07T10:16:06.272934+00:00",
       "stop_loss": 257.1,
       "take_profit": 260.1
-    },
-    {
-      "ticker": "AMD_US_EQ",
-      "quantity": 10,
-      "entry_price": 477.45001220703125,
-      "entry_time": "2026-09-07T10:17:26.245084+00:00",
-      "stop_loss": 471.8,
-      "take_profit": 484.98
     }
   ],
-  "daily_pnl": 0.0,
-  "trading_day": "2026-09-07",
+  "daily_pnl": 327.99,
+  "trading_day": "2026-09-08",
   "trade_history": [
     {
-      "ticker": "AMZN_US_EQ",
-      "action": "BUY",
-      "quantity": 19,
-      "price": 258.510009765625,
-      "time": "2026-09-07T10:16:06.272951+00:00",
-      "reasoning": "Bullish momentum is supported by multiple aligned signals: EMA9 has crossed above EMA21 and both are rising, MACD histogram improved from -0.3112 to +0.0781 with a bullish crossover, RSI advanced from 41.7 to 58.34 without reaching overbought, and price moved from the lower Bollinger region toward the upper band. The latest volume surged to 3.53M while OBV is rising, confirming the move. Price is near resistance at the upper Bollinger Band, so upside may be limited and the position should be managed with ATR-based exits."
-    },
-    {
       "ticker": "AMD_US_EQ",
-      "action": "BUY",
+      "action": "SELL",
       "quantity": 10,
-      "price": 477.45001220703125,
-      "time": "2026-09-07T10:17:26.245113+00:00",
-      "reasoning": "Bullish trend is supported by EMA9 above EMA21 and price above both averages. After a steady decline in MACD histogram and RSI from recent highs, the latest candle shows a renewed MACD histogram uptick and RSI recovery. The sharp price advance is strongly volume-confirmed, with current volume far exceeding recent candles and OBV rising. However, price is near the upper Bollinger Band and RSI is elevated, so this is a momentum breakout entry rather than an oversold setup; use defined risk against a potential pullback."
+      "price": 510.2488098144531,
+      "time": "2026-09-08T17:06:32.117750+00:00",
+      "reasoning": "Take-profit triggered"
     }
   ],
-  "last_run": "2026-09-07T21:46:04.764904+00:00",
-  "cumulative_pnl": 0.0,
-  "peak_pnl": 0.0
+  "last_run": "2026-09-08T17:08:25.858965+00:00",
+  "cumulative_pnl": 327.99,
+  "peak_pnl": 327.99
 }
