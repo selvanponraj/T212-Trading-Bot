@@ -60,5 +60,21 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": 327.99
+  },
+  {
+    "id": "2026-09-08T20:07:29.689813+00:00_AMZN_US_EQ_SELL",
+    "ticker": "AMZN_US_EQ",
+    "yf_symbol": "AMZN",
+    "action": "SELL",
+    "quantity": 19,
+    "price": 256.9599914550781,
+    "value": 4882.24,
+    "time": "2026-09-08T20:07:29.689813+00:00",
+    "reasoning": "Stop-loss triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": -29.45
   }
 ]
