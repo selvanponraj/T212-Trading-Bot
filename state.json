@@ -1,26 +1,9 @@
 {
   "positions": [],
-  "daily_pnl": 298.54,
-  "trading_day": "2026-09-08",
-  "trade_history": [
-    {
-      "ticker": "AMD_US_EQ",
-      "action": "SELL",
-      "quantity": 10,
-      "price": 510.2488098144531,
-      "time": "2026-09-08T17:06:32.117750+00:00",
-      "reasoning": "Take-profit triggered"
-    },
-    {
-      "ticker": "AMZN_US_EQ",
-      "action": "SELL",
-      "quantity": 19,
-      "price": 256.9599914550781,
-      "time": "2026-09-08T20:07:29.689667+00:00",
-      "reasoning": "Stop-loss triggered"
-    }
-  ],
-  "last_run": "2026-09-08T22:56:34.794816+00:00",
+  "daily_pnl": 0.0,
+  "trading_day": "2026-09-09",
+  "trade_history": [],
+  "last_run": "2026-09-09T17:05:57.064765+00:00",
   "cumulative_pnl": 925.0699999999999,
   "peak_pnl": 925.0699999999999
 }
