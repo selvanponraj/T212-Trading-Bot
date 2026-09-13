@@ -1,9 +1,9 @@
 name: Trading Bot
 
 on:
-  schedule:
-    # Test every 5 minutes, all 7 days
-    - cron: '*/5 * * * *'
+  # schedule:
+  #   # Test every 5 minutes, all 7 days
+  #   - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
