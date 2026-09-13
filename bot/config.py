@@ -17,34 +17,43 @@ class Config:
     lite_llm_timeout: float = 30.0
 
     # Diversified across sectors to avoid correlated positions
+    # watchlist: dict[str, str] = field(default_factory=lambda: {
+    #     "AAPL_US_EQ": "AAPL",     # Technology - Consumer Electronics
+    #     "MSFT_US_EQ": "MSFT",     # Technology - Software
+    #     "NVDA_US_EQ": "NVDA",     # Technology - Semiconductors
+    #     "GOOGL_US_EQ": "GOOGL",   # Communication Services - Interactive Media
+    #     "AMZN_US_EQ": "AMZN",     # Consumer Discretionary - Broadline Retail
+    #     "META_US_EQ": "META",     # Communication Services - Interactive Media
+    #     "TSLA_US_EQ": "TSLA",     # Consumer Discretionary - Automobile Manufacturers
+    #     "BRK.B_US_EQ": "BRK.B",   # Financials - Multi-Sector Holdings
+    #     "LLY_US_EQ": "LLY",       # Healthcare - Pharmaceuticals
+    #     "AVGO_US_EQ": "AVGO",     # Technology - Semiconductors
+    #     "JPM_US_EQ": "JPM",       # Financials - Diversified Banks
+    #     "UNH_US_EQ": "UNH",       # Healthcare - Managed Healthcare
+    #     "V_US_EQ": "V",           # Financials - Transaction & Payment Processing
+    #     "XOM_US_EQ": "XOM",       # Energy - Integrated Oil & Gas
+    #     "MA_US_EQ": "MA",         # Financials - Transaction & Payment Processing
+    #     "JNJ_US_EQ": "JNJ",       # Healthcare - Pharmaceuticals
+    #     "PG_US_EQ": "PG",         # Consumer Staples - Personal Care Products
+    #     "HD_US_EQ": "HD",         # Consumer Discretionary - Home Improvement Retail
+    #     "COST_US_EQ": "COST",     # Consumer Staples - Consumer Staples Merchandise Retail
+    #     "MRK_US_EQ": "MRK",       # Healthcare - Pharmaceuticals
+    #     "ABBV_US_EQ": "ABBV",     # Healthcare - Biotechnology
+    #     "CRM_US_EQ": "CRM",       # Technology - Application Software
+    #     "AMD_US_EQ": "AMD",       # Technology - Semiconductors
+    #     "CVX_US_EQ": "CVX",       # Energy - Integrated Oil & Gas
+    #     "NFLX_US_EQ": "NFLX",     # Communication Services - Movies & Entertainment
+    # })
     watchlist: dict[str, str] = field(default_factory=lambda: {
-        "AAPL_US_EQ": "AAPL",     # Technology - Consumer Electronics
-        "MSFT_US_EQ": "MSFT",     # Technology - Software
         "NVDA_US_EQ": "NVDA",     # Technology - Semiconductors
-        "GOOGL_US_EQ": "GOOGL",   # Communication Services - Interactive Media
-        "AMZN_US_EQ": "AMZN",     # Consumer Discretionary - Broadline Retail
-        "META_US_EQ": "META",     # Communication Services - Interactive Media
-        "TSLA_US_EQ": "TSLA",     # Consumer Discretionary - Automobile Manufacturers
-        "BRK.B_US_EQ": "BRK.B",   # Financials - Multi-Sector Holdings
-        "LLY_US_EQ": "LLY",       # Healthcare - Pharmaceuticals
         "AVGO_US_EQ": "AVGO",     # Technology - Semiconductors
-        "JPM_US_EQ": "JPM",       # Financials - Diversified Banks
-        "UNH_US_EQ": "UNH",       # Healthcare - Managed Healthcare
-        "V_US_EQ": "V",           # Financials - Transaction & Payment Processing
-        "XOM_US_EQ": "XOM",       # Energy - Integrated Oil & Gas
-        "MA_US_EQ": "MA",         # Financials - Transaction & Payment Processing
-        "JNJ_US_EQ": "JNJ",       # Healthcare - Pharmaceuticals
-        "PG_US_EQ": "PG",         # Consumer Staples - Personal Care Products
-        "HD_US_EQ": "HD",         # Consumer Discretionary - Home Improvement Retail
-        "COST_US_EQ": "COST",     # Consumer Staples - Consumer Staples Merchandise Retail
-        "MRK_US_EQ": "MRK",       # Healthcare - Pharmaceuticals
-        "ABBV_US_EQ": "ABBV",     # Healthcare - Biotechnology
+        "ENTG_US_EQ": "ENTG",     # Technology - Semiconductor Materials & Equipment
+        "LSCC_US_EQ": "LSCC",     # Technology - Semiconductors
+        "MTSI_US_EQ": "MTSI",     # Technology - Analog & Mixed-Signal Semiconductors
+        "NTNX_US_EQ": "NTNX",     # Technology - Systems Software & Cloud Infrastructure
+        "QLYS_US_EQ": "QLYS",     # Technology - Cybersecurity Software
         "CRM_US_EQ": "CRM",       # Technology - Application Software
-        "AMD_US_EQ": "AMD",       # Technology - Semiconductors
-        "CVX_US_EQ": "CVX",       # Energy - Integrated Oil & Gas
-        "NFLX_US_EQ": "NFLX",     # Communication Services - Movies & Entertainment
     })
-
     max_position_value: float = 5000.0
     max_open_positions: int = 5
     max_daily_loss: float = -500.0
