@@ -2,11 +2,11 @@ name: Deploy Dashboard
 
 on:
   push:
-    paths:
-      - 'dashboard/**'
-      - 'data/**'
-    branches:
-      - main
+    # paths:
+    #   - 'dashboard/**'
+    #   - 'data/**'
+    # branches:
+    #   - main
   workflow_dispatch:
 
 permissions:
