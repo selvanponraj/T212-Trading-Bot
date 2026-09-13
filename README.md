@@ -1,23 +1,21 @@
 # Trading Bot
 
-Autonomous intraday paper-trading bot. Python + LiteLLM remote model with Gemini fallback + Trading212 demo API, scheduled on GitHub Actions cron, with state persisted as JSON in Git. Paper trading only.
+An autonomous intraday paper-trading bot built in Python, using GitHub Actions for scheduling, a structured LLM decision engine, and a Trading212 demo API connection. The repository also includes a React + TypeScript dashboard that visualizes bot state, trades, performance, and model decisions.
 
-> **Disclaimer**: this is a personal learning project. It runs against the Trading212 **demo** environment only. It does not place real-money trades. Nothing in this repository is investment advice.
+> Live Dashboard: https://selvanponraj.github.io/T212-Trading-Bot/
 
----
+## Overview
 
-## What it does
+This project is a portfolio-style trading bot that:
 
-Every 30 minutes during US market hours (Monday–Friday, 14:30–21:00 UTC), a GitHub Actions workflow:
+- fetches market data and technical indicators,
+- asks an LLM for structured decisions,
+- validates the output against risk rules,
+- executes approved trades in the Trading212 demo environment,
+- persists state and output as JSON files,
+- exposes the results through a GitHub Pages dashboard.
 
-1. Fetches recent OHLCV data and computes technical indicators (RSI, MACD, Bollinger Bands, SMA, ATR) for a diversified five-stock watchlist.
-2. Sends the **last ten candles** of indicator history to LiteLLM remote model with Gemini fallback using a structured-output prompt.
-3. Calls the remote LiteLLM provider first, validates its JSON response, and falls back to Gemini on failure. If both providers fail, the bot deterministically returns HOLD.
-4. Runs the proposed action (`BUY`, `SELL`, or `HOLD`) through a multi-check risk manager (confidence threshold, daily loss limit, cumulative drawdown from peak, max open positions, max position value, duplicate-position guard, etc.).
-5. Executes approved orders against the Trading212 demo REST API.
-6. Updates `state.json` and the `data/` JSON files, then commits them back to the repo so the run history is fully versioned.
-
-Stop-loss and take-profit checks run at the start of every cycle for any open position before the model is consulted.
+It is designed for learning and experimentation. It only targets the Trading212 demo environment and never places real-money trades.
 
 ---
 
@@ -27,18 +25,23 @@ Stop-loss and take-profit checks run at the start of every cycle for any open po
 flowchart LR
     subgraph data_sources [Data Sources]
         YF[yfinance]
-        T212API[Trading212 API]
+        T212[Trading212 demo API]
     end
 
-    subgraph bot [Python bot - GitHub Actions runner]
-        MD[market_data.py: indicators]
-        AI[analyst.py: LiteLLM and Gemini decision providers]
-        RM[risk.py: validation]
-        EX[broker.py: Trading212 client]
+    subgraph bot [Python Bot]
+        MD[market_data.py]
+        AI[analyst.py]
+        RM[risk.py]
+        EX[broker.py]
         ST[state.py + data_export.py]
     end
 
-    subgraph storage [Git repo - JSON files]
+    subgraph infra [GitHub Infrastructure]
+        GA[GitHub Actions]
+        GP[GitHub Pages]
+    end
+
+    subgraph storage [Git repository]
         SJ[state.json]
         TJ[data/trades.json]
         DJ[data/daily_summaries.json]
@@ -46,184 +49,230 @@ flowchart LR
     end
 
     YF --> MD --> AI --> RM --> EX
-    EX --> T212API
+    EX --> T212
     EX --> ST
     AI --> ST
     ST --> SJ
     ST --> TJ
     ST --> DJ
     ST --> LJ
+    GA --> bot
+    bot --> GP
 ```
-
-Everything runs on GitHub. There is no external server, database, or paid infrastructure.
 
 ---
 
-## Tech stack
+## Features
 
-| Layer | Technology | Cost |
-|---|---|---|
-| Market data | `yfinance` + `ta` | Free |
-| AI decisions | LiteLLM remote model with Gemini fallback (structured JSON output) | Proxy-dependent; Gemini fallback has free-tier limits |
-| Trade execution | Trading212 REST API, demo environment, Basic auth | Free |
-| HTTP client | `httpx` (sync, with manual retry/backoff) | — |
-| Bot runtime | GitHub Actions scheduled cron | Free (2,000 min/month) |
-| Data store | JSON files committed to Git | Free, full version history |
-| Secrets | GitHub repository secrets | Free |
-| AI code review | `anthropic/claude-code-action` on pull requests | Pay-per-use |
+- AI-driven trade decisions with structured JSON output and fallback handling
+- Multi-layer risk checks for drawdown, loss limits, position sizing, duplicates, and stop-loss/take-profit logic
+- Automated execution through GitHub Actions on a self-hosted or GitHub-hosted runner
+- Persistent state and historical output stored in JSON files committed to Git
+- Portfolio-ready dashboard with pages for overview, positions, trade history, performance, and model insights
+- GitHub Pages deployment for the dashboard
 
 ---
 
-## Repository layout
+## Tech Stack
 
-```
+| Layer | Technology |
+|---|---|
+| Market data | `yfinance`, `ta` |
+| AI / model layer | LiteLLM with Gemini fallback |
+| Trade execution | Trading212 REST API (demo) |
+| Automation | GitHub Actions |
+| Dashboard | React + TypeScript + Vite + Tailwind CSS + Recharts |
+| Hosting | GitHub Pages |
+
+---
+
+## Repository Layout
+
+```text
 .
 ├── bot/
-│   ├── main.py             # entrypoint: orchestrates the full decision cycle
-│   ├── config.py           # dataclass-based config + watchlist + risk knobs
-│   ├── market_data.py      # yfinance + ta: candles and indicator history
-│   ├── analyst.py          # LiteLLM-first analysis with Gemini fallback
-│   ├── risk.py             # multi-check validator (loss, drawdown, sizing, ...)
-│   ├── broker.py           # Trading212 demo REST client (Basic auth, retries)
-│   ├── state.py            # in-memory state helpers + atomic save/load
-│   └── data_export.py      # writes data/trades.json, daily_summaries.json,
-│                           # latest_decisions.json for downstream consumption
+│   ├── analyst.py
+│   ├── broker.py
+│   ├── config.py
+│   ├── data_export.py
+│   ├── main.py
+│   ├── market_data.py
+│   ├── risk.py
+│   └── state.py
+├── dashboard/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.ts
+│   └── tsconfig.*
 ├── data/
-│   ├── trades.json         # append-only trade ledger (BUY, SELL, P&L)
-│   ├── daily_summaries.json# per-day P&L, peak, drawdown
-│   └── latest_decisions.json # most recent decision per ticker (executed or not)
+│   ├── daily_summaries.json
+│   ├── latest_decisions.json
+│   └── trades.json
 ├── design/
-│   ├── OVERVIEW.md         # high-level project doc
-│   ├── ARCHITECTURE.md     # contracts, schemas, env vars
-│   └── phase-1 ... phase-7 # incremental build phases
-├── .github/workflows/
-│   ├── trade.yml           # scheduled bot run (every 30 min, mkt hours)
-│   └── claude-code-review.yml # AI code-review assistant on pull requests
-├── state.json              # runtime state: positions, P&L, peak, last_run
-├── requirements.txt
+│   ├── ARCHITECTURE.md
+│   ├── OVERVIEW.md
+│   └── phase-*.md
+├── .github/
+│   └── workflows/
+│       ├── claude-code-review.yml
+│       ├── deploy-dashboard.yml
+│       └── trade.yml
 ├── .env.example
-└── CLAUDE.md               # project context for the Claude Code review agent
+├── CLAUDE.md
+├── README.md
+├── requirements.txt
+├── state.json
+└── .gitignore
 ```
 
 ---
 
-## Quick start (local)
+## Quick Start
 
-Requires Python 3.11+.
+### 1. Clone the repo
 
 ```bash
-git clone https://github.com/rionaNazareth/Trading-Bot.git
-cd Trading-Bot
+git clone https://github.com/selvanponraj/T212-Trading-Bot.git
+cd T212-Trading-Bot
+```
 
+### 2. Create a Python environment
+
+```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
+### 3. Configure environment variables
+
+```bash
 cp .env.example .env
-# Fill in TRADING212_API_KEY, TRADING212_API_SECRET (demo account),
-# LITE_LLM_API_KEY, and optionally GEMINI_API_KEY (fallback).
+```
 
+Then populate the required secrets for your local environment:
+
+- `TRADING212_API_KEY`
+- `TRADING212_API_SECRET`
+- `TRADING212_ENVIRONMENT` (normally `demo`)
+- `LITE_LLM_BASE_URL`
+- `LITE_LLM_MODEL`
+- `LITE_LLM_API_KEY`
+- `GEMINI_API_KEY` (optional fallback)
+
+### 4. Run the bot locally
+
+```bash
 python -m bot.main
 ```
 
-The bot will read `state.json`, run one decision cycle against the watchlist, and write any trades + state changes back to disk.
+This will read `state.json`, run one trade cycle, and write updates back to the repo.
 
 ---
 
 ## Configuration
 
-All runtime knobs live on the `Config` dataclass in `bot/config.py`. Defaults:
+Most runtime settings live in `bot/config.py`.
 
-| Knob | Default | Meaning |
-|---|---|---|
-| `watchlist` | 5 tickers across 5 sectors (`AAPL`, `JPM`, `XOM`, `JNJ`, `WMT`) | Avoids correlated positions |
-| `max_position_value` | `$100` | Hard cap per position |
-| `max_open_positions` | `3` | Concurrent positions ceiling |
-| `max_daily_loss` | `-$50` | Blocks new BUYs once breached |
-| `max_drawdown` | `-$150` from peak P&L | Halts trading on slow bleed |
-| `confidence_threshold` | `0.7` | Minimum the configured model-reported confidence to act |
-| `default_stop_loss_pct` | `3 %` | Used when the model does not provide one |
-| `default_take_profit_pct` | `5 %` | Used when the model does not provide one |
-| `indicator_history_length` | `10` candles | Window sent to the configured model for trend / divergence |
+Key settings include:
 
-### Environment variables
-
-| Variable | Purpose |
-|---|---|
-| `TRADING212_API_KEY` | Trading212 demo API key id |
-| `TRADING212_API_SECRET` | Trading212 demo API secret |
-| `TRADING212_ENVIRONMENT` | `demo` (default). The bot will refuse anything else. |
-| `LITE_LLM_BASE_URL` | LiteLLM proxy URL (default `http://132.145.30.2:4000`) |
-| `LITE_LLM_MODEL` | Proxy model name (default `gpt-5.6-luna`) |
-| `LITE_LLM_API_KEY` | LiteLLM proxy authentication key |
-| `LITE_LLM_TIMEOUT` | Remote request timeout in seconds (default `30`) |
-| `GEMINI_API_KEY` | Optional Google AI Studio key used as fallback |
-
-Secrets in CI are stored as **repository secrets**, not committed to the repo. Locally they live in `.env`, which is `.gitignore`d.
+- watchlist composition
+- max open positions
+- max position value
+- daily loss threshold
+- drawdown threshold
+- confidence threshold
+- default stop-loss/take-profit percentages
+- historical indicator window length
 
 ---
 
-## Decision flow
+## Dashboard
 
-Each scheduled run executes the same cycle inside `bot.main.run`:
+The dashboard is implemented under `dashboard/` and is designed to consume the JSON exports from the bot:
 
-1. **Stop-loss / take-profit sweep** for every open position. If the latest price has crossed either band, the position is closed before any model call.
-2. **Per-ticker analysis loop** for the watchlist:
-   - Pull `indicator_history_length` candles of OHLCV + indicators.
-   - Build a structured prompt and call the configured model for an `action`, `confidence`, `quantity`, `stop_loss`, `take_profit`, and `reasoning`.
-   - Schema-validate the response. Drop on parse failure.
-   - Reject duplicate `BUY` (already holding) before risk validation.
-   - Run the risk validator — confidence threshold, daily loss, drawdown from peak, max positions, position sizing, valid action, etc.
-   - On approval, place the order via Trading212. On execution, persist position + trade + indicators snapshot.
-3. **Cumulative P&L tracking**: roll daily P&L into cumulative, update peak P&L, recompute drawdown, persist `state.json`, and write `data/latest_decisions.json` + `data/daily_summaries.json` for downstream consumption.
+- `state.json`
+- `data/trades.json`
+- `data/daily_summaries.json`
+- `data/latest_decisions.json`
 
-Every decision (executed or not) is logged with the rejection reason, so the dataset can be inspected after the fact.
+### Dashboard pages
 
----
+- Dashboard overview
+- Open positions
+- Trade history
+- Performance analytics
+- Model insights
 
-## Why these design choices
+### Local dev run
 
-| Decision | Why |
-|---|---|
-| Remote LLM with Gemini fallback, not a trained ML model | No training data or GPU, free tier, structured JSON output, contextual reasoning over indicators |
-| Send 10 candles, not the latest snapshot | A single bar cannot show trend, momentum, or divergence — the model needs sequence context to be useful |
-| Diversified five-sector watchlist | Three tech stocks would be one large bet on tech; sector spread keeps risk uncorrelated |
-| Cumulative drawdown check on top of daily loss | A daily limit alone does not catch slow bleed across multiple days |
-| GitHub Actions instead of a VPS | Free, zero ops, and a 30-minute cadence does not need a long-running process |
-| JSON files in Git instead of a database | Free, full version history for free, easy to read from a static frontend over `raw.githubusercontent.com` |
-| Demo environment only | The goal is to learn agentic LLM trading patterns, not to lose real money to my own bot |
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+
+The app will be available from the Vite dev server, and the production build is used by the GitHub Pages deployment workflow.
 
 ---
 
-## CI / CD
+## Deployment
 
-### `trade.yml` — scheduled bot run
+### GitHub Pages
 
-Runs every 30 minutes, Monday to Friday, 14:30–21:00 UTC. Installs dependencies, runs `python -m bot.main` with the secrets in env, then commits any updates to `state.json` and `data/` back to `main` via a rebased push from a `trading-bot` git identity.
+1. Open the GitHub repository settings.
+2. Navigate to `Settings` → `Pages`.
+3. Set the source to `GitHub Actions`.
+4. Push to `main` with changes under `dashboard/` or `data/` to trigger the deployment workflow.
 
-### `claude-code-review.yml` — AI code-review assistant
+The workflow file is located at:
 
-`anthropic/claude-code-action@v1` is wired to PRs and `@claude` mentions. It reads the diff and the repo (including `CLAUDE.md` for project context), then posts review comments focusing on:
+- `.github/workflows/deploy-dashboard.yml`
 
-- Resilience to malformed remote/Gemini output (schema validation, fallbacks).
-- Trading212 API auth, retries, and rate-limit handling.
-- State persistence correctness.
-- Secret handling and any logging that might leak keys.
-- Indicator math correctness.
-- Test coverage gaps and obvious edge cases.
+This workflow builds the dashboard and deploys the generated static site to GitHub Pages.
 
-The decision loop uses the remote LLM first and Gemini as a fallback.
+### Bot automation
+
+The scheduled bot workflow is defined in:
+
+- `.github/workflows/trade.yml`
+
+This handles the Python trading run and commits updated state/data back to the repository.
 
 ---
 
-## Status
+## Required GitHub Secrets
 
-Active development. The Python bot, risk manager, scheduler, and Claude Code review workflow are in place. Extensions on the design docs (backtesting harness, dashboard, deployment polish) are tracked under `design/phase-*.md` and built incrementally.
+Set these in your repository secrets before running the bot or deploying the dashboard:
 
-Pull requests are reviewed by the Claude Code action before merge.
+- `TRADING212_API_KEY`
+- `TRADING212_API_SECRET`
+- `LITE_LLM_API_KEY`
+- `GEMINI_API_KEY`
+
+Optional repository variables:
+
+- `LITE_LLM_BASE_URL`
+- `LITE_LLM_MODEL`
+
+---
+
+## Development Notes
+
+This repository is structured to support incremental phases:
+
+- bot logic and scheduling
+- data exports and persistence
+- dashboard visualization
+- deployment automation
+- portfolio-style documentation
+
+The current dashboard and deployment workflows are already wired for GitHub Pages and are ready for a first production-style publish.
 
 ---
 
 ## License
 
-No license has been set. Treat the code as **all rights reserved** for now. If you would like to use any of it, open an issue.
+This project is currently unlicensed. Treat it as all rights reserved unless a license is added later.
