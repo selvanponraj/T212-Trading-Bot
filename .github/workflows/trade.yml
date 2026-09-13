@@ -2,17 +2,16 @@ name: Trading Bot
 
 on:
   schedule:
-    # Every 30 minutes, Mon-Fri, during US market hours (UTC)
-    # US market: 9:30 AM - 4:00 PM ET = ~13:30 - 20:00 UTC
-    - cron: '*/30 13-20 * * 1-5'
-  workflow_dispatch:  # Manual trigger for testing
+    # Test every 5 minutes, all 7 days
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write  # Required to commit state.json and data/
 
 jobs:
   trade:
-    runs-on: self-hosted
+    runs-on: [self-hosted, oracle-vm-ib]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
