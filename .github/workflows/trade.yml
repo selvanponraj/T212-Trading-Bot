@@ -4,7 +4,9 @@ on:
   schedule:
     # Every 30 minutes, Mon-Fri, during US market hours (UTC)
     # US market: 9:30 AM - 4:00 PM ET = ~13:30 - 20:00 UTC
-    - cron: '*/30 13-20 * * 1-5'
+    # Every 30 minutes, Mon-Fri, from 13:30 to 20:30 UTC
+    - cron: '30 13-20 * * 1-5'
+    - cron: '0 14-20 * * 1-5'
   workflow_dispatch:  # Manual trigger for testing
 
 permissions:
@@ -12,7 +14,7 @@ permissions:
 
 jobs:
   trade:
-    runs-on: self-hosted
+    runs-on: [self-hosted, oracle-vm-ib]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
