@@ -1,12 +1,12 @@
 {
-  "run_time": "2026-09-16T12:32:19.162996+00:00",
+  "run_time": "2026-09-16T13:02:27.693515+00:00",
   "decisions": [
     {
       "ticker": "NVDA_US_EQ",
       "yf_symbol": "NVDA",
       "action": "HOLD",
       "confidence": 0.82,
-      "reasoning": "Signals are mixed: RSI has recovered from 36.06 to 42.17 and MACD histogram has risen steadily, with OBV and the latest volume supporting the rebound. However, the EMA9 remains below EMA21, the broader trend is bearish, and price is near the Bollinger middle band rather than an oversold lower-band entry. No clear bullish crossover or breakout confirmation is present, so avoid initiating a position.",
+      "reasoning": "Signals are mixed. The broader intraday trend remains bearish with EMA9 below EMA21, while RSI has recovered from 36.06 to 42.17 and the MACD histogram has steadily improved from 0.2305 to 0.2952, indicating weakening downside momentum but not a confirmed bullish reversal. Price is near the Bollinger midpoint rather than the lower band, and the latest volume spike with rising OBV is supportive but insufficient by itself. No clear RSI bullish divergence or breakout confirmation is present, so remain flat.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -34,8 +34,8 @@
       "ticker": "AVGO_US_EQ",
       "yf_symbol": "AVGO",
       "action": "HOLD",
-      "confidence": 0.84,
-      "reasoning": "RSI remains deeply oversold but has not established a strong recovery, while price is below both EMA9 and EMA21 and the broader trend remains bearish. MACD histogram has improved substantially from negative levels and indicates waning downside momentum, but MACD is still below zero. Price remains near the lower Bollinger Band, yet falling OBV and the latest high-volume decline do not confirm a bullish reversal. No position is held, so avoid buying until volume and trend structure improve.",
+      "confidence": 0.68,
+      "reasoning": "Trend remains bearish with EMA9 below EMA21 and falling OBV. RSI is oversold, while MACD histogram has improved from deeply negative levels and remains positive, suggesting a possible momentum rebound, but price has not established a higher low and RSI has weakened again. The latest high-volume decline provides selling-volume confirmation rather than bullish confirmation. No clear RSI divergence or Bollinger breakout supports a BUY, so remain sidelined.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -63,8 +63,8 @@
       "ticker": "ENTG_US_EQ",
       "yf_symbol": "ENTG",
       "action": "HOLD",
-      "confidence": 0.68,
-      "reasoning": "Momentum has improved materially from oversold conditions: RSI rose from 29.26 to 46.5, MACD histogram crossed above zero and expanded, price reclaimed the Bollinger middle band, and the latest volume surge with rising OBV confirms the rebound. However, the broader trend remains bearish because EMA9 is still below EMA21, and price is not near the lower band after the rebound. Signals support recovery but do not yet provide sufficient trend alignment for a BUY.",
+      "confidence": 0.82,
+      "reasoning": "The rebound is supported by improving RSI from deeply oversold levels, a positive MACD histogram expanding from negative territory, rising OBV, and strong current volume. However, the broader trend remains bearish with EMA9 below EMA21, and price is already above the Bollinger midline at 64% of the band, reducing the risk-reward for a fresh entry. No clear bullish trend reversal is confirmed, so remain on the sidelines.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -92,8 +92,8 @@
       "ticker": "LSCC_US_EQ",
       "yf_symbol": "LSCC",
       "action": "HOLD",
-      "confidence": 0.68,
-      "reasoning": "Momentum is improving: RSI recovered from deeply oversold levels, MACD histogram has risen steadily from negative to positive, price reclaimed EMA(9), and the latest volume spike with rising OBV confirms buying interest. However, the broader trend remains bearish with EMA(9) below EMA(21), price is only near the Bollinger midline rather than the lower band, and there is no confirmed bullish trend reversal yet. Signals are therefore mixed, so remain sidelined.",
+      "confidence": 0.82,
+      "reasoning": "Momentum is improving: RSI recovered from oversold near 27-30 to 40.65, MACD histogram has risen for seven consecutive candles and remains above its signal-line spread, while OBV and the latest volume support the rebound. However, the broader trend remains bearish with EMA9 below EMA21, price only near the Bollinger midpoint, and no confirmed bullish trend reversal. Signals are mixed, so avoid initiating a position until price reclaims EMA21 with sustained volume.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -122,7 +122,7 @@
       "yf_symbol": "MTSI",
       "action": "HOLD",
       "confidence": 0.84,
-      "reasoning": "Momentum is improving: RSI has risen from deeply oversold levels, MACD histogram has expanded positively for nine consecutive candles, price recovered toward the Bollinger middle band, and the latest volume spike plus rising OBV confirm participation. However, the broader trend remains bearish with EMA(9) below EMA(21), price is no longer near the lower band, and there is no confirmed bullish EMA crossover or breakout. Signals are therefore mixed, so avoid initiating a position until trend confirmation develops.",
+      "reasoning": "Momentum is improving: RSI has risen from deeply oversold levels near 22 to 35.67, MACD histogram has expanded positively from 0.21 to 1.32, price has recovered toward the Bollinger middle band, and the latest volume spike with rising OBV supports the rebound. However, the broader trend remains bearish because EMA9 is below EMA21 and price is only near the middle band rather than breaking above resistance. Signals are therefore mixed; wait for a sustained move above the EMA21 and stronger RSI confirmation before buying.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -150,8 +150,8 @@
       "ticker": "NTNX_US_EQ",
       "yf_symbol": "NTNX",
       "action": "HOLD",
-      "confidence": 0.82,
-      "reasoning": "Trend remains mildly bullish with EMA9 above EMA21 and rising OBV, but momentum has weakened: RSI declined from overbought levels near 72 to 54.72, while MACD histogram crossed below zero and has continued deteriorating. Price is near the Bollinger middle band rather than the lower band, and the latest volume spike confirms activity but not directional follow-through. No clear bullish divergence or multi-indicator buy alignment is present, so remain on the sidelines.",
+      "confidence": 0.64,
+      "reasoning": "The broader trend remains mildly bullish with EMA9 above EMA21 and rising OBV, while current volume is elevated. However, momentum has weakened: RSI declined from overbought levels near 72 to 54.72, MACD histogram fell steadily from positive to -0.0736, and price is only near the Bollinger middle band with no confirmed breakout or oversold reversal. Signals are mixed, so a new long position is not justified yet.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -179,8 +179,8 @@
       "ticker": "QLYS_US_EQ",
       "yf_symbol": "QLYS",
       "action": "HOLD",
-      "confidence": 0.88,
-      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21, and OBV/volume are supportive. However, RSI is persistently overbought near 81 with no bullish acceleration, while MACD histogram has contracted steadily from 1.0361 to 0.3564, indicating fading momentum. Bollinger %B has declined from above 1.0 to 0.8157, and the latest volume spike produced essentially no price gain, weakening breakout confirmation. No position is held, so avoid selling; wait for either a momentum reset or renewed confirmed upside.",
+      "confidence": 0.9,
+      "reasoning": "Bullish trend remains intact with price above rising EMA9 and EMA21 and OBV rising, but momentum is weakening: RSI remains extremely overbought near 81, MACD histogram has declined for seven consecutive readings from 1.0829 to 0.3564, and Bollinger %B has fallen from above 1.0 to 0.8157 while price is nearly flat. The latest volume spike lacks corresponding price progress, suggesting possible distribution rather than confirmed continuation. No position is held, so a SELL is not appropriate; avoid initiating a BUY until momentum stabilizes or volume confirms a breakout.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -209,7 +209,7 @@
       "yf_symbol": "CRM",
       "action": "HOLD",
       "confidence": 0.86,
-      "reasoning": "Price has declined for eight consecutive candles from 262.01 to 255.90, while RSI fell from 72.90 to 46.98 and MACD histogram deteriorated from positive to -0.7928, confirming weakening momentum. Price is near the lower Bollinger Band, but there is no clear bullish RSI divergence or MACD reversal. The latest volume spike and falling OBV support continued selling pressure rather than a confirmed rebound. EMA9 remains slightly above EMA21, so the broader short-term trend is still technically bullish, but signals are mixed and do not justify a new long entry. No position is held, so selling is not permitted.",
+      "reasoning": "Mixed but weakening setup: EMA9 remains slightly above EMA21, yet price has fallen to the lower Bollinger Band, RSI declined from 72.90 to 46.98, and MACD histogram has deteriorated steadily from positive to -0.7928 below its signal. Falling OBV and the large-volume latest decline confirm bearish momentum rather than a supported dip. No clear RSI divergence or reversal signal is present, so avoid buying while not holding a position.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
