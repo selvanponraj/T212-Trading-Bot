@@ -76,5 +76,28 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": -29.45
+  },
+  {
+    "id": "2026-09-18T13:01:59.297635+00:00_ENTG_US_EQ_BUY",
+    "ticker": "ENTG_US_EQ",
+    "yf_symbol": "ENTG",
+    "action": "BUY",
+    "quantity": 37,
+    "price": 134.72000122070312,
+    "value": 4984.64,
+    "time": "2026-09-18T13:01:59.297635+00:00",
+    "reasoning": "Bullish trend is supported by price above rising EMA9 and EMA21, positive MACD above its signal, and rising OBV. The latest candle shows a strong price advance with substantially higher volume, confirming the move. RSI has recovered to 62.57 without being overbought, while the MACD histogram has stabilized after contracting, suggesting a possible momentum reacceleration. Price is above the Bollinger midpoint but remains below the upper band, leaving room for an intraday continuation. No clear bearish RSI divergence is present.",
+    "confidence": 0.76,
+    "indicators": {
+      "rsi_14": 62.57,
+      "macd": 0.9075,
+      "macd_signal": 0.7799,
+      "macd_histogram": 0.1276,
+      "bb_pct": 0.7547,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 133.02,
+    "take_profit": 137.0,
+    "pnl": null
   }
 ]
