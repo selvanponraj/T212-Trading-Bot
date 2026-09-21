@@ -1,26 +1,9 @@
 {
   "positions": [],
-  "daily_pnl": 125.06,
-  "trading_day": "2026-09-18",
-  "trade_history": [
-    {
-      "ticker": "ENTG_US_EQ",
-      "action": "BUY",
-      "quantity": 37,
-      "price": 134.72000122070312,
-      "time": "2026-09-18T13:01:59.297479+00:00",
-      "reasoning": "Bullish trend is supported by price above rising EMA9 and EMA21, positive MACD above its signal, and rising OBV. The latest candle shows a strong price advance with substantially higher volume, confirming the move. RSI has recovered to 62.57 without being overbought, while the MACD histogram has stabilized after contracting, suggesting a possible momentum reacceleration. Price is above the Bollinger midpoint but remains below the upper band, leaving room for an intraday continuation. No clear bearish RSI divergence is present."
-    },
-    {
-      "ticker": "ENTG_US_EQ",
-      "action": "SELL",
-      "quantity": 37,
-      "price": 138.10000610351562,
-      "time": "2026-09-18T14:31:45.765471+00:00",
-      "reasoning": "Take-profit triggered"
-    }
-  ],
-  "last_run": "2026-09-18T18:32:12.635375+00:00",
+  "daily_pnl": 0.0,
+  "trading_day": "2026-09-21",
+  "trade_history": [],
+  "last_run": "2026-09-21T12:32:34.677762+00:00",
   "cumulative_pnl": 2050.6099999999997,
   "peak_pnl": 2050.6099999999997
 }
