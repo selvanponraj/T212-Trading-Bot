@@ -1,12 +1,12 @@
 {
-  "run_time": "2026-09-22T12:33:18.059166+00:00",
+  "run_time": "2026-09-22T13:07:54.704780+00:00",
   "decisions": [
     {
       "ticker": "NVDA_US_EQ",
       "yf_symbol": "NVDA",
       "action": "HOLD",
-      "confidence": 0.9,
-      "reasoning": "The asset is currently in overbought territory with RSI at 79.11, although it is starting to decline from its peak of 84.20. MACD histogram is narrowing significantly (from 0.4645 down to 0.1706), indicating a loss of bullish momentum. Additionally, the OBV trend is falling, showing lack of volume support for further upward movement. Since no position is currently held and a BUY is highly risky at these elevated levels, a HOLD is recommended.",
+      "confidence": 0.95,
+      "reasoning": "RSI is in overbought territory at 79.11, while the MACD histogram has steadily declined over the past five candles from 0.4645 to 0.1706, indicating a clear bearish divergence in momentum. Furthermore, the falling OBV trend indicates a lack of buying volume support at these elevated prices. Since there is no active position to sell, a neutral stance is highly recommended to avoid buying at the peak of a weakening trend.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -35,7 +35,7 @@
       "yf_symbol": "AVGO",
       "action": "HOLD",
       "confidence": 0.5,
-      "reasoning": "The overall trend remains bullish with EMA(9) above EMA(21), but the current candle shows a pullback from the recent high of $363.38 to $362.54 on high volume. RSI has pulled back from overbought levels (72.76 down to 68.71) and the MACD histogram is narrowing, indicating a loss of upward momentum. Price is also near the upper Bollinger Band. Given these mixed signals and no existing position, we default to HOLD.",
+      "reasoning": "RSI is near overbought territory at 68.71 and starting to turn down, while the MACD histogram shows a loss of bullish momentum decreasing from 0.1719 to 0.1152. Price is also near the upper Bollinger Band (%B=0.85) and has recently pulled back on high volume, indicating potential resistance. Without an existing position, we hold to wait for a deeper pullback or clearer trend continuation.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -63,8 +63,8 @@
       "ticker": "ENTG_US_EQ",
       "yf_symbol": "ENTG",
       "action": "HOLD",
-      "confidence": 0.85,
-      "reasoning": "A bearish divergence is visible on the RSI, which made a lower high (72.14) when price peaked at $143.65 compared to the previous RSI peak of 75.94 at $143.36. The MACD histogram is negative and continues to decline (-0.1302), and the OBV trend is falling, indicating lack of volume support for the upward trend. Since we do not hold a position and buying is risky under these conditions, we HOLD.",
+      "confidence": 0.9,
+      "reasoning": "We do not currently hold a position, so a SELL is not permitted. A BUY is not supported because the RSI is declining from overbought levels, MACD histogram is increasingly negative, and the OBV trend is falling, indicating volume confirmation on the downside. There is also a bearish divergence between candles 4 and 8 (higher price, lower RSI).",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -92,8 +92,8 @@
       "ticker": "LSCC_US_EQ",
       "yf_symbol": "LSCC",
       "action": "HOLD",
-      "confidence": 0.0,
-      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
+      "confidence": 0.5,
+      "reasoning": "The overall trend is bullish with EMA(9) above EMA(21) and rising OBV. However, short-term momentum has weakened, as evidenced by the MACD histogram crossing below zero and the RSI retracing from overbought levels (84.01 down to 65.49). Since we do not hold a position, we cannot sell, and a buy is not supported due to the bearish MACD crossover and lack of price stabilization near support. We hold and wait for a better entry point.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -120,11 +120,11 @@
     {
       "ticker": "MTSI_US_EQ",
       "yf_symbol": "MTSI",
-      "action": "HOLD",
-      "confidence": 0.5,
-      "reasoning": "Price is consolidating near the EMA(9) and the middle Bollinger Band after a pullback from $283.3. Although volume surged significantly on the latest candle and OBV is rising, the MACD histogram remains negative and has not yet crossed over, indicating mixed momentum signals. Waiting for a clearer trend confirmation.",
-      "was_executed": false,
-      "rejection_reason": "Failed risk validation",
+      "action": "BUY",
+      "confidence": 0.75,
+      "reasoning": "Bullish trend supported by EMA alignment (EMA9 > EMA21). Price has pulled back to the middle Bollinger Band and is turning upwards, confirmed by a massive volume spike on the latest candle (265k vs. average under 100k). The MACD histogram has started to narrow (-0.9157 to -0.9133) indicating loss of downward momentum, while RSI ticks upward. ATR-based stop loss is placed below the key EMA21 support.",
+      "was_executed": true,
+      "rejection_reason": null,
       "indicators": {
         "symbol": "MTSI",
         "current_price": 278.9700012207031,
@@ -151,7 +151,7 @@
       "yf_symbol": "NTNX",
       "action": "HOLD",
       "confidence": 0.85,
-      "reasoning": "The current price dropped sharply on very high volume (almost 5x the average of previous candles), breaking below the EMA(9) and EMA(21) and approaching the middle Bollinger Band. MACD histogram is accelerating downwards (-0.0451) and OBV is falling, confirming bearish momentum. Since we do not hold a position, we cannot SELL, and a BUY is not justified as indicators are turning bearish with no signs of oversold conditions or reversal yet.",
+      "reasoning": "Price broke sharply below the EMA(9) and EMA(21) on a massive volume spike (490,856 vs ~100k average), indicating strong bearish momentum. With the MACD histogram declining further into negative territory and OBV falling, there is no bullish confirmation to BUY. Since no position is currently held, a SELL action is not permitted. Thus, we HOLD and wait for stabilization.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -179,8 +179,8 @@
       "ticker": "QLYS_US_EQ",
       "yf_symbol": "QLYS",
       "action": "HOLD",
-      "confidence": 0.5,
-      "reasoning": "Price is trading near the upper Bollinger Band while the MACD histogram shows a bearish divergence (declining momentum during a price rise) and the OBV trend is falling. Volume does not support a bullish breakout, warranting a neutral stance.",
+      "confidence": 0.8,
+      "reasoning": "No current position is held. Price is near the upper Bollinger Band but momentum is weakening, as shown by a declining MACD histogram and a falling OBV trend (bearish divergence). Lacking volume confirmation for a breakout, we default to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -208,8 +208,8 @@
       "ticker": "CRM_US_EQ",
       "yf_symbol": "CRM",
       "action": "HOLD",
-      "confidence": 0.85,
-      "reasoning": "Strong bearish momentum is confirmed by a massive volume spike (1.46M) on the latest downward move. Price is hugging the lower Bollinger Band (BB% of 0.0463) with no RSI divergence or MACD crossover to signal a reversal. Buying here would be catching a falling knife, and selling is not permitted as we hold no position.",
+      "confidence": 0.0,
+      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {

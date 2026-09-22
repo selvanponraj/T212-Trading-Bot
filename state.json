@@ -1,9 +1,27 @@
 {
-  "positions": [],
+  "positions": [
+    {
+      "ticker": "MTSI_US_EQ",
+      "quantity": 15,
+      "entry_price": 278.9700012207031,
+      "entry_time": "2026-09-22T13:05:00.182920+00:00",
+      "stop_loss": 275.13,
+      "take_profit": 284.08
+    }
+  ],
   "daily_pnl": 0.0,
   "trading_day": "2026-09-22",
-  "trade_history": [],
-  "last_run": "2026-09-22T12:33:18.057517+00:00",
+  "trade_history": [
+    {
+      "ticker": "MTSI_US_EQ",
+      "action": "BUY",
+      "quantity": 15,
+      "price": 278.9700012207031,
+      "time": "2026-09-22T13:05:00.182942+00:00",
+      "reasoning": "Bullish trend supported by EMA alignment (EMA9 > EMA21). Price has pulled back to the middle Bollinger Band and is turning upwards, confirmed by a massive volume spike on the latest candle (265k vs. average under 100k). The MACD histogram has started to narrow (-0.9157 to -0.9133) indicating loss of downward momentum, while RSI ticks upward. ATR-based stop loss is placed below the key EMA21 support."
+    }
+  ],
+  "last_run": "2026-09-22T13:07:54.704084+00:00",
   "cumulative_pnl": 2050.6099999999997,
   "peak_pnl": 2050.6099999999997
 }

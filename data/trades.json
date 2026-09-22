@@ -115,5 +115,28 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": 125.06
+  },
+  {
+    "id": "2026-09-22T13:05:00.183106+00:00_MTSI_US_EQ_BUY",
+    "ticker": "MTSI_US_EQ",
+    "yf_symbol": "MTSI",
+    "action": "BUY",
+    "quantity": 15,
+    "price": 278.9700012207031,
+    "value": 4184.55,
+    "time": "2026-09-22T13:05:00.183106+00:00",
+    "reasoning": "Bullish trend supported by EMA alignment (EMA9 > EMA21). Price has pulled back to the middle Bollinger Band and is turning upwards, confirmed by a massive volume spike on the latest candle (265k vs. average under 100k). The MACD histogram has started to narrow (-0.9157 to -0.9133) indicating loss of downward momentum, while RSI ticks upward. ATR-based stop loss is placed below the key EMA21 support.",
+    "confidence": 0.75,
+    "indicators": {
+      "rsi_14": 60.48,
+      "macd": 3.2384,
+      "macd_signal": 4.1517,
+      "macd_histogram": -0.9133,
+      "bb_pct": 0.5757,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 275.13,
+    "take_profit": 284.08,
+    "pnl": null
   }
 ]
