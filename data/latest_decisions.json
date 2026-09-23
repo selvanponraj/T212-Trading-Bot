@@ -1,12 +1,12 @@
 {
-  "run_time": "2026-09-23T12:36:47.771426+00:00",
+  "run_time": "2026-09-23T13:03:43.459603+00:00",
   "decisions": [
     {
       "ticker": "NVDA_US_EQ",
       "yf_symbol": "NVDA",
       "action": "HOLD",
-      "confidence": 0.85,
-      "reasoning": "The stock is experiencing a short-term bearish correction. RSI is declining from overbought levels, MACD histogram is widening to the downside, and the latest drop occurred on high volume with a falling OBV trend. Since we do not hold a position, we must remain on the sidelines until signs of stabilization appear.",
+      "confidence": 0.95,
+      "reasoning": "Bearish momentum is accelerating as the price broke below the 9 EMA on a significant volume spike of 8.36M, which is much higher than recent averages. MACD histogram is trending further into negative territory (-0.2301), and RSI is falling rapidly from overbought territory. Since we do not hold a position, we cannot initiate a SELL, and a BUY is highly risky given the lack of support and strong downward momentum.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -34,8 +34,8 @@
       "ticker": "AVGO_US_EQ",
       "yf_symbol": "AVGO",
       "action": "HOLD",
-      "confidence": 0.85,
-      "reasoning": "RSI is declining from near-overbought levels, and the MACD histogram remains negative with the MACD line below the signal line. Furthermore, the substantial volume spike on the latest downward price move, combined with a falling OBV trend, suggests distribution and potential further downside. Since we do not hold a position, entering a BUY is not justified, and we cannot SELL.",
+      "confidence": 0.5,
+      "reasoning": "While the longer-term EMA trend remains bullish, the immediate momentum is bearish as price rejected near the upper Bollinger Band. RSI is declining from near-overbought levels, the MACD histogram is decreasing further into negative territory, and OBV is falling on significantly increased volume, suggesting a short-term pullback. No position is currently held, so a HOLD is warranted to wait for stabilization or a clearer entry signal.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -64,7 +64,7 @@
       "yf_symbol": "ENTG",
       "action": "HOLD",
       "confidence": 0.85,
-      "reasoning": "Price has surged on high volume, but RSI is heavily overbought at 78.86 and price is trading near the upper Bollinger Band (98% B). Entering a new long position here carries high risk of mean reversion, so we default to HOLD.",
+      "reasoning": "Strong bullish momentum is confirmed by massive volume on the latest candle, but RSI is highly overbought at 78.86 and the price is hugging the upper Bollinger Band (98% %B). Entering a new BUY position here carries a high risk of buying at the absolute peak. We hold and wait for a healthier pullback towards the EMA(9) near 148.55.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -91,11 +91,11 @@
     {
       "ticker": "LSCC_US_EQ",
       "yf_symbol": "LSCC",
-      "action": "BUY",
-      "confidence": 0.75,
-      "reasoning": "Strong bullish breakout confirmed by a massive volume spike (591k) on the latest candle. MACD histogram is rising and EMA trend is bullish. Despite RSI being in the overbought territory at 75, the strong volume and OBV trend support continuation of the momentum. Stop loss is set just below EMA9 using ATR guidelines.",
-      "was_executed": true,
-      "rejection_reason": null,
+      "action": "HOLD",
+      "confidence": 0.85,
+      "reasoning": "Strong bullish breakout confirmed by massive volume (591k) and rising MACD histogram. Although RSI is at 75.0 (overbought), the extreme volume support and rising OBV indicate strong momentum. No reversal signals are present yet. We hold to let profits run towards the target.",
+      "was_executed": false,
+      "rejection_reason": "Failed risk validation",
       "indicators": {
         "symbol": "LSCC",
         "current_price": 122.55999755859375,
@@ -120,11 +120,11 @@
     {
       "ticker": "MTSI_US_EQ",
       "yf_symbol": "MTSI",
-      "action": "HOLD",
+      "action": "BUY",
       "confidence": 0.85,
-      "reasoning": "Strong bullish momentum confirmed by a massive volume spike (226,519 vs. previous average). EMA trend remains bullish (EMA9 > EMA21), MACD histogram is narrowing towards positive territory, and RSI at 56.46 indicates ample room for further upside. We hold to let profits run while adjusting our stop-loss upward to lock in gains.",
+      "reasoning": "The trend remains bullish with EMA(9) above EMA(21) and price above both EMAs. MACD histogram is steadily narrowing towards a bullish crossover. Crucially, the latest price increase is backed by a massive volume spike of 226,519 (more than 3x the recent average), confirming strong buyer pressure. Scaled in 2 additional shares while remaining under the $5000 maximum position value limit.",
       "was_executed": false,
-      "rejection_reason": "Failed risk validation",
+      "rejection_reason": "Already holding position",
       "indicators": {
         "symbol": "MTSI",
         "current_price": 279.7449951171875,
@@ -150,8 +150,8 @@
       "ticker": "NTNX_US_EQ",
       "yf_symbol": "NTNX",
       "action": "HOLD",
-      "confidence": 0.85,
-      "reasoning": "Significant downward price breakdown on high volume. The trend is strongly bearish with EMAs crossed negative and MACD histogram expanding downwards. Although the price is near the lower Bollinger Band, there is no evidence of stabilization or bullish divergence yet. Standing aside is the safest decision.",
+      "confidence": 0.9,
+      "reasoning": "The price experienced a sharp drop on extremely high volume (431,917), confirming strong bearish momentum. Indicators are aligned bearishly: EMA(9) is below EMA(21), OBV is falling, and MACD histogram has dipped further into negative territory. RSI at 41.0 indicates more room to fall before reaching oversold levels, and there is no bullish divergence to justify a buy. Since no position is currently held, we hold and wait for stabilization.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -179,8 +179,8 @@
       "ticker": "QLYS_US_EQ",
       "yf_symbol": "QLYS",
       "action": "HOLD",
-      "confidence": 0.5,
-      "reasoning": "The stock is experiencing a short-term pullback from its recent high of $186.05. The last candle showed a significant drop in price accompanied by the highest volume in the last 10 periods (138,109), confirming strong selling pressure. The MACD histogram is declining, OBV is falling, and the price is below the EMA(9). Since we do not hold a position and current indicators do not support a safe entry point for a BUY, the best course of action is to HOLD.",
+      "confidence": 0.85,
+      "reasoning": "The stock is experiencing a short-term correction after peaking near $186.05. The RSI is declining from overbought levels, the MACD histogram is shrinking, and the latest downward move is confirmed by high volume (138,109) and a falling OBV. Since signals suggest further downside and we do not hold a position to sell, we maintain a HOLD stance.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -207,11 +207,11 @@
     {
       "ticker": "CRM_US_EQ",
       "yf_symbol": "CRM",
-      "action": "BUY",
-      "confidence": 0.75,
-      "reasoning": "Price has successfully recovered from oversold conditions (RSI touched 19.41 and is now rising at 40.9). MACD has undergone a bullish crossover with a steadily rising positive histogram (0.3246). Price has crossed and held above the EMA(9) with a massive volume spike (1.44M) confirming strong buying interest at these levels. The trend is shifting from bearish to bullish.",
-      "was_executed": true,
-      "rejection_reason": null,
+      "action": "HOLD",
+      "confidence": 0.85,
+      "reasoning": "CRM is showing a solid recovery from oversold conditions, with RSI rising from 19.4 to 40.9 and the MACD histogram steadily gaining positive momentum to 0.3246. Although the latest candle showed a minor price dip on high volume, it remains above the EMA(9) support of 232.88. Since we are already holding at our entry price, we maintain the position to allow the upward momentum to test the EMA(21) and the middle Bollinger Band.",
+      "was_executed": false,
+      "rejection_reason": "Failed risk validation",
       "indicators": {
         "symbol": "CRM",
         "current_price": 233.27999877929688,
