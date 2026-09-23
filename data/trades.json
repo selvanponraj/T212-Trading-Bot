@@ -200,5 +200,21 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": -62.7
+  },
+  {
+    "id": "2026-09-23T14:31:46.101164+00:00_LSCC_US_EQ_SELL",
+    "ticker": "LSCC_US_EQ",
+    "yf_symbol": "LSCC",
+    "action": "SELL",
+    "quantity": 40,
+    "price": 119.51000213623047,
+    "value": 4780.4,
+    "time": "2026-09-23T14:31:46.101164+00:00",
+    "reasoning": "Stop-loss triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": -122.0
   }
 ]
