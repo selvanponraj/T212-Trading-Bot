@@ -184,5 +184,21 @@
     "stop_loss": 230.83,
     "take_profit": 238.17,
     "pnl": null
+  },
+  {
+    "id": "2026-09-23T13:31:43.694935+00:00_MTSI_US_EQ_SELL",
+    "ticker": "MTSI_US_EQ",
+    "yf_symbol": "MTSI",
+    "action": "SELL",
+    "quantity": 15,
+    "price": 274.7900085449219,
+    "value": 4121.85,
+    "time": "2026-09-23T13:31:43.694935+00:00",
+    "reasoning": "Stop-loss triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": -62.7
   }
 ]
