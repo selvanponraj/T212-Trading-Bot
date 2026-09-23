@@ -216,5 +216,21 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": -122.0
+  },
+  {
+    "id": "2026-09-23T16:01:40.446476+00:00_CRM_US_EQ_SELL",
+    "ticker": "CRM_US_EQ",
+    "yf_symbol": "CRM",
+    "action": "SELL",
+    "quantity": 21,
+    "price": 238.86000061035156,
+    "value": 5016.06,
+    "time": "2026-09-23T16:01:40.446476+00:00",
+    "reasoning": "Take-profit triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": 117.18
   }
 ]
