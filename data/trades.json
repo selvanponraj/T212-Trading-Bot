@@ -138,5 +138,51 @@
     "stop_loss": 275.13,
     "take_profit": 284.08,
     "pnl": null
+  },
+  {
+    "id": "2026-09-23T12:35:33.659747+00:00_LSCC_US_EQ_BUY",
+    "ticker": "LSCC_US_EQ",
+    "yf_symbol": "LSCC",
+    "action": "BUY",
+    "quantity": 40,
+    "price": 122.55999755859375,
+    "value": 4902.4,
+    "time": "2026-09-23T12:35:33.659747+00:00",
+    "reasoning": "Strong bullish breakout confirmed by a massive volume spike (591k) on the latest candle. MACD histogram is rising and EMA trend is bullish. Despite RSI being in the overbought territory at 75, the strong volume and OBV trend support continuation of the momentum. Stop loss is set just below EMA9 using ATR guidelines.",
+    "confidence": 0.75,
+    "indicators": {
+      "rsi_14": 75.0,
+      "macd": 2.0817,
+      "macd_signal": 2.005,
+      "macd_histogram": 0.0767,
+      "bb_pct": 0.9983,
+      "ema_trend": "bullish"
+    },
+    "stop_loss": 120.85,
+    "take_profit": 125.5,
+    "pnl": null
+  },
+  {
+    "id": "2026-09-23T12:36:47.769223+00:00_CRM_US_EQ_BUY",
+    "ticker": "CRM_US_EQ",
+    "yf_symbol": "CRM",
+    "action": "BUY",
+    "quantity": 21,
+    "price": 233.27999877929688,
+    "value": 4898.88,
+    "time": "2026-09-23T12:36:47.769223+00:00",
+    "reasoning": "Price has successfully recovered from oversold conditions (RSI touched 19.41 and is now rising at 40.9). MACD has undergone a bullish crossover with a steadily rising positive histogram (0.3246). Price has crossed and held above the EMA(9) with a massive volume spike (1.44M) confirming strong buying interest at these levels. The trend is shifting from bearish to bullish.",
+    "confidence": 0.75,
+    "indicators": {
+      "rsi_14": 40.9,
+      "macd": -1.8425,
+      "macd_signal": -2.1671,
+      "macd_histogram": 0.3246,
+      "bb_pct": 0.4165,
+      "ema_trend": "bearish"
+    },
+    "stop_loss": 230.83,
+    "take_profit": 238.17,
+    "pnl": null
   }
 ]
