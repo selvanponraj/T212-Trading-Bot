@@ -1,50 +1,75 @@
 {
-  "positions": [],
-  "daily_pnl": -67.51999999999998,
-  "trading_day": "2026-09-23",
-  "trade_history": [
+  "positions": [
     {
-      "ticker": "LSCC_US_EQ",
-      "action": "BUY",
-      "quantity": 40,
-      "price": 122.55999755859375,
-      "time": "2026-09-23T12:35:33.659574+00:00",
-      "reasoning": "Strong bullish breakout confirmed by a massive volume spike (591k) on the latest candle. MACD histogram is rising and EMA trend is bullish. Despite RSI being in the overbought territory at 75, the strong volume and OBV trend support continuation of the momentum. Stop loss is set just below EMA9 using ATR guidelines."
+      "ticker": "NVDA_US_EQ",
+      "quantity": 22,
+      "entry_price": 225.50999450683594,
+      "entry_time": "2026-09-24T12:31:52.647651+00:00",
+      "stop_loss": 224.1,
+      "take_profit": 227.86
     },
     {
-      "ticker": "CRM_US_EQ",
-      "action": "BUY",
-      "quantity": 21,
-      "price": 233.27999877929688,
-      "time": "2026-09-23T12:36:47.769047+00:00",
-      "reasoning": "Price has successfully recovered from oversold conditions (RSI touched 19.41 and is now rising at 40.9). MACD has undergone a bullish crossover with a steadily rising positive histogram (0.3246). Price has crossed and held above the EMA(9) with a massive volume spike (1.44M) confirming strong buying interest at these levels. The trend is shifting from bearish to bullish."
-    },
-    {
-      "ticker": "MTSI_US_EQ",
-      "action": "SELL",
-      "quantity": 15,
-      "price": 274.7900085449219,
-      "time": "2026-09-23T13:31:43.694717+00:00",
-      "reasoning": "Stop-loss triggered"
+      "ticker": "AVGO_US_EQ",
+      "quantity": 14,
+      "entry_price": 355.0350036621094,
+      "entry_time": "2026-09-24T12:32:05.584536+00:00",
+      "stop_loss": 351.56,
+      "take_profit": 360.25
     },
     {
       "ticker": "LSCC_US_EQ",
-      "action": "SELL",
-      "quantity": 40,
-      "price": 119.51000213623047,
-      "time": "2026-09-23T14:31:46.100967+00:00",
-      "reasoning": "Stop-loss triggered"
+      "quantity": 41,
+      "entry_price": 121.72000122070312,
+      "entry_time": "2026-09-24T12:32:43.038794+00:00",
+      "stop_loss": 120.12,
+      "take_profit": 124.39
     },
     {
-      "ticker": "CRM_US_EQ",
-      "action": "SELL",
-      "quantity": 21,
-      "price": 238.86000061035156,
-      "time": "2026-09-23T16:01:40.446273+00:00",
-      "reasoning": "Take-profit triggered"
+      "ticker": "QLYS_US_EQ",
+      "quantity": 25,
+      "entry_price": 184.9499969482422,
+      "entry_time": "2026-09-24T12:33:16.930290+00:00",
+      "stop_loss": 182.2,
+      "take_profit": 188.6
     }
   ],
-  "last_run": "2026-09-23T18:32:09.554461+00:00",
+  "daily_pnl": 0.0,
+  "trading_day": "2026-09-24",
+  "trade_history": [
+    {
+      "ticker": "NVDA_US_EQ",
+      "action": "BUY",
+      "quantity": 22,
+      "price": 225.50999450683594,
+      "time": "2026-09-24T12:31:52.647670+00:00",
+      "reasoning": "RSI has risen from near-oversold levels (36.19 to 46.29) while the MACD histogram has steadily contracted over five consecutive candles, signaling a loss of bearish momentum. The latest candle shows a major volume spike (8.7M) confirming buying pressure as price crosses above the EMA(9)."
+    },
+    {
+      "ticker": "AVGO_US_EQ",
+      "action": "BUY",
+      "quantity": 14,
+      "price": 355.0350036621094,
+      "time": "2026-09-24T12:32:05.584555+00:00",
+      "reasoning": "Bullish divergence observed as price hit a low of 354.52 while RSI made a higher low at 36.29 compared to its previous low. MACD histogram is steadily narrowing from -1.28 to -0.51, indicating a loss of bearish momentum. Strong volume confirmation on the current candle (2.27M vs previous average of ~700k) indicates buying pressure near the lower Bollinger Band."
+    },
+    {
+      "ticker": "LSCC_US_EQ",
+      "action": "BUY",
+      "quantity": 41,
+      "price": 121.72000122070312,
+      "time": "2026-09-24T12:32:43.038813+00:00",
+      "reasoning": "Strong bullish trend supported by EMA alignment (EMA9 > EMA21) and a massive volume breakout (260k vs 56k average) on the latest candle. MACD histogram is steadily narrowing toward a bullish crossover, OBV is rising, and RSI is in a healthy momentum zone (60.25) without being overbought."
+    },
+    {
+      "ticker": "QLYS_US_EQ",
+      "action": "BUY",
+      "quantity": 25,
+      "price": 184.9499969482422,
+      "time": "2026-09-24T12:33:16.930312+00:00",
+      "reasoning": "Strong volume-confirmed rebound from the EMA21 support area. Price has recovered back above the EMA9 and the middle Bollinger Band on a massive volume spike (101.5k). MACD histogram is narrowing from -0.3166 to -0.2576, indicating a loss of bearish momentum and a potential reversal back to the upside, supported by a rising RSI of 56.12. Stop loss is set below the recent low and close to the lower Bollinger Band using ATR-based positioning."
+    }
+  ],
+  "last_run": "2026-09-24T12:33:30.751256+00:00",
   "cumulative_pnl": 965.9899999999996,
   "peak_pnl": 2050.6099999999997
 }
