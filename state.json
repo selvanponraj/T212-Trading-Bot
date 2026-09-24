@@ -31,6 +31,14 @@
       "entry_time": "2026-09-24T12:33:16.930290+00:00",
       "stop_loss": 182.2,
       "take_profit": 188.6
+    },
+    {
+      "ticker": "MTSI_US_EQ",
+      "quantity": 15,
+      "entry_price": 276.0899963378906,
+      "entry_time": "2026-09-24T13:03:11.196382+00:00",
+      "stop_loss": 271.71,
+      "take_profit": 281.93
     }
   ],
   "daily_pnl": 0.0,
@@ -67,9 +75,17 @@
       "price": 184.9499969482422,
       "time": "2026-09-24T12:33:16.930312+00:00",
       "reasoning": "Strong volume-confirmed rebound from the EMA21 support area. Price has recovered back above the EMA9 and the middle Bollinger Band on a massive volume spike (101.5k). MACD histogram is narrowing from -0.3166 to -0.2576, indicating a loss of bearish momentum and a potential reversal back to the upside, supported by a rising RSI of 56.12. Stop loss is set below the recent low and close to the lower Bollinger Band using ATR-based positioning."
+    },
+    {
+      "ticker": "MTSI_US_EQ",
+      "action": "BUY",
+      "quantity": 15,
+      "price": 276.0899963378906,
+      "time": "2026-09-24T13:03:11.196401+00:00",
+      "reasoning": "Strong bullish divergence and momentum shift detected. The MACD histogram has steadily narrowed over the last six candles, approaching a positive crossover. The current candle shows a massive volume spike (203k vs. average ~40k), indicating strong volume confirmation of the price reversal from recent lows. While the EMA trend is technically bearish, the price has reclaimed EMA(9) and is testing the EMA(21) and middle Bollinger Band, supported by a rising OBV."
     }
   ],
-  "last_run": "2026-09-24T12:33:30.751256+00:00",
+  "last_run": "2026-09-24T13:03:47.296435+00:00",
   "cumulative_pnl": 965.9899999999996,
   "peak_pnl": 2050.6099999999997
 }

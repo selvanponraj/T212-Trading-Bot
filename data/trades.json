@@ -324,5 +324,28 @@
     "stop_loss": 182.2,
     "take_profit": 188.6,
     "pnl": null
+  },
+  {
+    "id": "2026-09-24T13:03:11.196640+00:00_MTSI_US_EQ_BUY",
+    "ticker": "MTSI_US_EQ",
+    "yf_symbol": "MTSI",
+    "action": "BUY",
+    "quantity": 15,
+    "price": 276.0899963378906,
+    "value": 4141.35,
+    "time": "2026-09-24T13:03:11.196640+00:00",
+    "reasoning": "Strong bullish divergence and momentum shift detected. The MACD histogram has steadily narrowed over the last six candles, approaching a positive crossover. The current candle shows a massive volume spike (203k vs. average ~40k), indicating strong volume confirmation of the price reversal from recent lows. While the EMA trend is technically bearish, the price has reclaimed EMA(9) and is testing the EMA(21) and middle Bollinger Band, supported by a rising OBV.",
+    "confidence": 0.75,
+    "indicators": {
+      "rsi_14": 49.81,
+      "macd": -0.4797,
+      "macd_signal": -0.4335,
+      "macd_histogram": -0.0462,
+      "bb_pct": 0.4676,
+      "ema_trend": "bearish"
+    },
+    "stop_loss": 271.71,
+    "take_profit": 281.93,
+    "pnl": null
   }
 ]
