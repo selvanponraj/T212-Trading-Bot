@@ -411,5 +411,21 @@
     "stop_loss": null,
     "take_profit": null,
     "pnl": -127.35
+  },
+  {
+    "id": "2026-09-25T13:31:47.238768+00:00_QLYS_US_EQ_SELL",
+    "ticker": "QLYS_US_EQ",
+    "yf_symbol": "QLYS",
+    "action": "SELL",
+    "quantity": 25,
+    "price": 181.66000366210938,
+    "value": 4541.5,
+    "time": "2026-09-25T13:31:47.238768+00:00",
+    "reasoning": "Stop-loss triggered",
+    "confidence": null,
+    "indicators": null,
+    "stop_loss": null,
+    "take_profit": null,
+    "pnl": -82.25
   }
 ]

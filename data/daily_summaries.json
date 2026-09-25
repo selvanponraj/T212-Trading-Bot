@@ -239,16 +239,16 @@
   },
   {
     "date": "2026-09-25",
-    "pnl": 0.0,
-    "cumulative_pnl": -60.69,
-    "trades_count": 0,
+    "pnl": -82.25,
+    "cumulative_pnl": -142.94,
+    "trades_count": 1,
     "buys": 0,
-    "sells": 0,
+    "sells": 1,
     "wins": 0,
-    "losses": 0,
+    "losses": 1,
     "win_rate": 0.0,
-    "best_trade_pnl": 0.0,
-    "worst_trade_pnl": 0.0,
-    "positions_open": 1
+    "best_trade_pnl": -82.25,
+    "worst_trade_pnl": -82.25,
+    "positions_open": 0
   }
 ]
