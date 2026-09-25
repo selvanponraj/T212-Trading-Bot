@@ -1,12 +1,12 @@
 {
-  "run_time": "2026-09-25T12:40:12.602356+00:00",
+  "run_time": "2026-09-25T13:02:30.541966+00:00",
   "decisions": [
     {
       "ticker": "NVDA_US_EQ",
       "yf_symbol": "NVDA",
-      "action": "BUY",
-      "confidence": 0.82,
-      "reasoning": "Price has successfully rebounded from oversold levels, breaking above the EMA(9) and EMA(21) on a massive volume spike of 9.6M. The MACD histogram shows persistent bullish momentum expansion and RSI has reclaimed the neutral 50 level, confirming a strong reversal setup.",
+      "action": "HOLD",
+      "confidence": 0.0,
+      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -33,9 +33,9 @@
     {
       "ticker": "AVGO_US_EQ",
       "yf_symbol": "AVGO",
-      "action": "BUY",
-      "confidence": 0.85,
-      "reasoning": "Price is reversing from oversold conditions (RSI reached 22.83 and is now at 40.05). A bullish MACD crossover is confirmed by a steadily rising histogram. Crucially, the latest candle shows a massive volume spike (2.9M vs average ~1M) confirming buying pressure, with the price crossing above the 9-day EMA.",
+      "action": "HOLD",
+      "confidence": 0.0,
+      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -62,9 +62,9 @@
     {
       "ticker": "ENTG_US_EQ",
       "yf_symbol": "ENTG",
-      "action": "BUY",
-      "confidence": 0.78,
-      "reasoning": "Strong momentum shift confirmed by a MACD histogram crossover into positive territory, rising RSI, and a massive volume spike (411k vs average ~70k). Price is trading above the Middle Bollinger Band and EMA lines, indicating a continuation of the upward reversal with strong volume confirmation.",
+      "action": "HOLD",
+      "confidence": 0.0,
+      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
@@ -120,9 +120,9 @@
     {
       "ticker": "MTSI_US_EQ",
       "yf_symbol": "MTSI",
-      "action": "BUY",
-      "confidence": 0.85,
-      "reasoning": "Strong bullish breakout verified by massive volume spike (nearly 4x the previous candle). Price has closed above the upper Bollinger Band (%B of 1.08) with the MACD histogram expanding upward and the EMA(9) trending above the EMA(21). RSI is at 67.09, showing strong momentum but still below overbought extremes, while the rising OBV confirms institutional accumulation.",
+      "action": "HOLD",
+      "confidence": 0.0,
+      "reasoning": "All configured LLM providers failed; defaulting to HOLD.",
       "was_executed": false,
       "rejection_reason": "Failed risk validation",
       "indicators": {
