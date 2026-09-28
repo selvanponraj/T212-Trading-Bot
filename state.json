@@ -1,18 +1,9 @@
 {
   "positions": [],
-  "daily_pnl": -82.25,
-  "trading_day": "2026-09-25",
-  "trade_history": [
-    {
-      "ticker": "QLYS_US_EQ",
-      "action": "SELL",
-      "quantity": 25,
-      "price": 181.66000366210938,
-      "time": "2026-09-25T13:31:47.238508+00:00",
-      "reasoning": "Stop-loss triggered"
-    }
-  ],
-  "last_run": "2026-09-25T18:32:19.247997+00:00",
+  "daily_pnl": 0.0,
+  "trading_day": "2026-09-28",
+  "trade_history": [],
+  "last_run": "2026-09-28T12:32:32.577788+00:00",
   "cumulative_pnl": -4106.46,
   "peak_pnl": 2050.6099999999997
 }
